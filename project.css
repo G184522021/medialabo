@@ -1,0 +1,22 @@
+h1 {
+    color: red;
+    text-shadow: #31ef67 1px 0 10px;
+    font-style: italic;
+    border-bottom: dashed black;
+    padding-bottom: 5px
+}
+h2 {
+    color: blue;
+    border: purple dotted;
+    padding: 5px 5px 5px 5px;
+}
+h3 {
+    color: navy;
+    border: purple dashed;
+    padding: 5px 5px 5px 5px;
+}
+ul {
+    color: black;
+    border: yellow solid;
+    padding: 5px 5px 5px 5px;
+}
