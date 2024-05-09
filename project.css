@@ -9,14 +9,17 @@ h2 {
     color: blue;
     border: purple dotted;
     padding: 5px 5px 5px 5px;
+    font-style: italic;
 }
 h3 {
     color: navy;
     border: purple dashed;
     padding: 5px 5px 5px 5px;
+    font-style: italic;
 }
 ul {
     color: black;
     border: yellow solid;
     padding: 5px 5px 5px 5px;
+    font-style: italic;
 }
