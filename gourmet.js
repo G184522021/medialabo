@@ -235,18 +235,19 @@ function sendRequest() {
     let shopid = b.querySelectorAll("option");
     console.log("value" + b.getAttribute("value"));
     
+    let url1  = "https://www.hotpepper.jp/strJ000989843/map/?vos=nhppalsa000016" + data.coupun_urls.pc;
+    let url2 = "https://www.hotpepper.jp/strJ000989843/scoupon/?vos=nhppalsa000016" + data.coupun_urls.sp;
+
     console.log(data);
     console.log(data.x);
-    access.textCountent = "https://www.hotpepper.jp/strJ000989843/map/?vos=nhppalsa000016" + data.coupon_urls.pc;
-    access.textCountent = "https://www.hotpepper.jp/strJ000989843/scoupon/?vos=nhppalsa000016" + data.coupon_urls.sp;
-    access.textCountent = "大人の社交場非日常を味わうダイニング" + data.genre.catch;
-    access.textCountent = "G001" + data.genre.code;
-    access.textCountent = "居酒屋" + data.genre.name;
-    access.textCountent = "Z011" + data.large_area.code;
-    access.textCountent = "東京" + data.large_area.name;
-    access.textCountent = "SS10" + data.large_service_area.code;
-    access.textCountent = "関東" + data.large_service_area.name;
-    access.textCountent = "Y110" + data.middle_area.code;
-    access.textCountent = "八王子・立川" + data.middle_area.code;
+    access.textCountent = "キャッチコピー：" + data.genre.catch;
+    access.textCountent = "ジャンルコード：" + data.genre.code;
+    access.textCountent = "ジャンル：" + data.genre.name;
+    access.textCountent = "場所コード" + data.large_area.code;
+    access.textCountent = "場所：" + data.large_area.name;
+    access.textCountent = "場所コード：" + data.large_service_area.code;
+    access.textCountent = "場所：" + data.large_service_area.name;
+    access.textCountent = "場所コード" + data.middle_area.code;
+    access.textCountent = "場所" + data.middle_area.code;
 
 }
