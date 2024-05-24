@@ -21,14 +21,36 @@ h2.insertAdjacentElement('afterend', p);
 p.style.textEmphasis = 'sesame green'; 
 
 // 練習4-3 写真表作成プログラム
-/*let div = document.querySelector('div#phototable');
-let beelink = document.createElement('a');
-beeLink.setAttribute('href', '');
-*/
+let div = document.querySelector('div#phototable');
 
+	let img = document.createElement('img');
+	img.setAttribute('src', 'taro.png');
+	let p2 = document.createElement("p");
+	div.insertAdjacentElement('afterend', img);
+	div.insertAdjacentElement('beforeend', p2);
+
+	let p3 = document.createElement("p");
+	let img2 = document.createElement('img');
+	img2.setAttribute('src', 'jiro.png');
+    div.insertAdjacentElement('afterend', img2);
+	div.insertAdjacentElement('beforeend', p3);
+
+	let p4 = document.createElement("p");
+	let img3 = document.createElement('img');
+	img3.setAttribute('src', 'hanako.png');
+    div.insertAdjacentElement('afterend', img3);
+	div.insertAdjacentElement('beforeend', p4);
 
 // 練習4-4 箇条書き削除プログラム
-
+let w = document.querySelectorAll('ul#location > li');
+for (let sakujo of w) {         
+	sakujo.remove();
+}
 
 // 練習4-5 箇条書き追加プログラム
-
+let ul = document.querySelector('ul#location');
+for (let kajo of data) {
+	let li = document.createElement('li');
+	li.textContent = kajo.name + '... 緯度:' + kajo.lat + ', 経度:' +kajo.lng;
+	ul.insertAdjacentElement('afterend', li);
+}
