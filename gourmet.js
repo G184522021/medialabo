@@ -200,54 +200,82 @@ let data = {
   };
   
   /////////// 課題3-2 ここからプログラムを書こ
-let access=document.querySelecter("#accese");
-let address=document.querySelecter("#address");
-let band=document.querySelecter("#band");
-let barrier_free=document.querySelecter("#barrier_free");
-let average=document.querySelecter("#average");
-let code=document.querySelecter("#code");
-let capacity=document.querySelecter("#capacity");
-let card=document.querySelecter("#card");
-let charter=document.querySelecter("#charter");
-let child=document.querySelecter("#child");
-let close=document.querySelecter("#close");
-let pc=document.querySelecter("#pc");
-let sp=document.querySelecter("#sp");
-let course=document.querySelecter("#course");
-let english=document.querySelecter("#english");
-let free_drink=document.querySelecter("#free_drink");
-let free_food=document.querySelecter("#free_food");
-let genre=document.querySelecter("#genre");
-let horigotatsu=document.querySelecter("#horigotatsu");
-let id=document.querySelecter("#id");
-let karaoke=document.querySelecter("#karaoke");
-let ktai_coupon=document.querySelecter("#ktai_coupon");
-let large_area=document.querySelecter("#large_area");
-let large_service_area=document.querySelecter("#;arge_service_area");
+  data.results.shop.forEach((shop, index) => {
+    console.log(`検索結果${index + 1}件目:`);
+    console.log(`名前: ${shop.name}`);
+    console.log(`アクセス: ${shop.access}`);
+    console.log(`住所: ${shop.address}`);
+    console.log(`予算: ${shop.budget.name}`);
+    console.log(`キャッチコピー: ${shop.catch}`);
+    console.log(`ジャンル: ${shop.genre.name}`);
+    console.log(`営業時間: ${shop.open}`);
+    console.log(`最寄り駅: ${shop.station_name}`);
+    console.log(`サブジャンル: ${shop.sub_genre.name}`);
+});
 
-let button = document.querySelecter("btn");
-button.addEventListener("click", sendRequest);
-function sendRequest() {
-  let a = document.querySelector("select#shop");
-    let idx = a.selectedIndex;
-    let b = a.querySelectorAll("option");
-    let c = b.selectedIndex;
-    let shopid = b.querySelectorAll("option");
-    console.log("value" + b.getAttribute("value"));
-    
-    let url1  = "https://www.hotpepper.jp/strJ000989843/map/?vos=nhppalsa000016" + data.coupun_urls.pc;
-    let url2 = "https://www.hotpepper.jp/strJ000989843/scoupon/?vos=nhppalsa000016" + data.coupun_urls.sp;
 
-    console.log(data);
-    console.log(data.x);
-    access.textCountent = "キャッチコピー：" + data.genre.catch;
-    access.textCountent = "ジャンルコード：" + data.genre.code;
-    access.textCountent = "ジャンル：" + data.genre.name;
-    access.textCountent = "場所コード" + data.large_area.code;
-    access.textCountent = "場所：" + data.large_area.name;
-    access.textCountent = "場所コード：" + data.large_service_area.code;
-    access.textCountent = "場所：" + data.large_service_area.name;
-    access.textCountent = "場所コード" + data.middle_area.code;
-    access.textCountent = "場所" + data.middle_area.code;
+// div#result内に要素を追加
+let resultDiv = document.getElementById('div#result');
+data.results.shop.forEach((shop, index) => {
+  let ul = document.createElement('ul');
+  resultDiv.appendChild(ul);
 
-}
+  let li1 = document.createElement('li');
+  li1.textContent = `名前: ${shop.name}`;
+  ul.appendChild(li1);
+
+  let li2 = document.createElement('li');
+  li2.textContent = `アクセス: ${shop.access}`;
+  ul.appendChild(li2);
+
+  let li3 = document.createElement('li');
+  li3.textContent = `住所: ${shop.address}`;
+  ul.appendChild(li3);
+
+  let li4 = document.createElement('li');
+  li4.textContent = `予算: ${shop.budget.name}`;
+  ul.appendChild(li4);
+
+  let li5 = document.createElement('li');
+  li5.textContent = `キャッチコピー: ${shop.catch}`;
+  ul.appendChild(li5);
+
+  let li6 = document.createElement('li');
+  li6.textContent = `ジャンル: ${shop.genre.name}`;
+  ul.appendChild(li6);
+
+  let li7 = document.createElement('li');
+  li7.textContent = `営業時間: ${shop.open}`;
+  ul.appendChild(li7);
+
+  let li8 = document.createElement('li');
+  li8.textContent = `最寄り駅: ${shop.station_name}`;
+  ul.appendChild(li8);
+
+  let li9 = document.createElement('li');
+  li9.textContent = `サブジャンル: ${shop.sub_genre.name}`;
+  ul.appendChild(li9);
+});
+
+/*    <ul>
+<li><name>名前:中華居酒屋 超兄貴</name></li>
+<li><acsess>アクセス:新橋駅JR烏森口(西口)から徒歩約3分</acsess></li>
+<li><adress>住所:東京都港区新橋4-10-2 相鉄フレッサイン新橋烏森口2階A号室</adress></li>
+<li><budget.name>予算: 昼 約1000円, 夜 約4000円</budget.name></li>
+<li><catch>キャッチコピー:【新橋駅徒歩1分★】 最大50名まで◎生ビール付き2H飲み放題宴会コース5000円(税込)~</catch></li>
+<li><genre>ジャンル:居酒屋</genre></li>
+<li><open>営業時間:月～土: 11:00～14:00, 17:00～23:30 日曜日 17:00～23:30</open></li>
+<li><station_name>最寄り駅:新橋駅JR烏森口(西口)</station_name></li>
+<li><sub_genre.name>サブジャンル:中華</sub_genre.name></li>
+</ul>
+<h3>検索結果2件目</h3>
+<ul>
+<li><name>名前:嵜本bakery 小田急百貨店新宿店</name></li>
+<li><acsess>アクセス:小田急百貨店新宿店のB2F</acsess></li>
+<li><adress>住所:東京都新宿区西新宿1-5-1 小田急百貨店 新宿店 B2F</adress></li>
+<li><catch>高級ベーカリー</catch></li>
+<li><genre>ジャンル:その他グルメ</genre></li>
+<li><open>営業時間:月～日: 10:00～20:30</open></li>
+<li><station_name>最寄り駅:新宿駅</station_name></li>
+<li><sub_genre.name>サブジャンル:カフェ・スイーツ</sub_genre.name></li>
+</ul> */
