@@ -199,63 +199,56 @@ let data = {
     }
   };
   
+  let b1 = document.querySelector('button#print');
+  b1.addEventListener('click', showSelectResult);
+function showSelectResult() {
+    let s = document.querySelector('input[name="kensaku"]').value;
+    console.log("検索キー: " +s);
+  
   /////////// 課題3-2 ここからプログラムを書こ
+  // div#result内に要素を追加
+  let resultDiv = document.getElementById('result');
   data.results.shop.forEach((shop, index) => {
-    console.log(`検索結果${index + 1}件目:`);
-    console.log(`名前: ${shop.name}`);
-    console.log(`アクセス: ${shop.access}`);
-    console.log(`住所: ${shop.address}`);
-    console.log(`予算: ${shop.budget.name}`);
-    console.log(`キャッチコピー: ${shop.catch}`);
-    console.log(`ジャンル: ${shop.genre.name}`);
-    console.log(`営業時間: ${shop.open}`);
-    console.log(`最寄り駅: ${shop.station_name}`);
-    console.log(`サブジャンル: ${shop.sub_genre.name}`);
-});
+    let ul = document.createElement('ul');
+    resultDiv.appendChild(ul);
 
+    let li1 = document.createElement('li');
+    li1.textContent = `名前: ${shop.name}`;
+    ul.appendChild(li1);
 
-// div#result内に要素を追加
-let resultDiv = document.getElementById('div#result');
-data.results.shop.forEach((shop, index) => {
-  let ul = document.createElement('ul');
-  resultDiv.appendChild(ul);
+    let li2 = document.createElement('li');
+    li2.textContent = `アクセス: ${shop.access}`;
+    ul.appendChild(li2);
 
-  let li1 = document.createElement('li');
-  li1.textContent = `名前: ${shop.name}`;
-  ul.appendChild(li1);
+    let li3 = document.createElement('li');
+    li3.textContent = `住所: ${shop.address}`;
+    ul.appendChild(li3);
 
-  let li2 = document.createElement('li');
-  li2.textContent = `アクセス: ${shop.access}`;
-  ul.appendChild(li2);
+    let li4 = document.createElement('li');
+    li4.textContent = `予算: ${shop.budget.name}`;
+    ul.appendChild(li4);
 
-  let li3 = document.createElement('li');
-  li3.textContent = `住所: ${shop.address}`;
-  ul.appendChild(li3);
+    let li5 = document.createElement('li');
+    li5.textContent = `キャッチコピー: ${shop.catch}`;
+    ul.appendChild(li5);
 
-  let li4 = document.createElement('li');
-  li4.textContent = `予算: ${shop.budget.name}`;
-  ul.appendChild(li4);
+    let li6 = document.createElement('li');
+    li6.textContent = `ジャンル: ${shop.genre.name}`;
+    ul.appendChild(li6);
 
-  let li5 = document.createElement('li');
-  li5.textContent = `キャッチコピー: ${shop.catch}`;
-  ul.appendChild(li5);
+    let li7 = document.createElement('li');
+    li7.textContent = `営業時間: ${shop.open}`;
+    ul.appendChild(li7);
 
-  let li6 = document.createElement('li');
-  li6.textContent = `ジャンル: ${shop.genre.name}`;
-  ul.appendChild(li6);
+    let li8 = document.createElement('li');
+    li8.textContent = `最寄り駅: ${shop.station_name}`;
+    ul.appendChild(li8);
 
-  let li7 = document.createElement('li');
-  li7.textContent = `営業時間: ${shop.open}`;
-  ul.appendChild(li7);
-
-  let li8 = document.createElement('li');
-  li8.textContent = `最寄り駅: ${shop.station_name}`;
-  ul.appendChild(li8);
-
-  let li9 = document.createElement('li');
-  li9.textContent = `サブジャンル: ${shop.sub_genre.name}`;
-  ul.appendChild(li9);
-});
+    let li9 = document.createElement('li');
+    li9.textContent = `サブジャンル: ${shop.sub_genre.name}`;
+    ul.appendChild(li9);
+  });
+}
 
 /*    <ul>
 <li><name>名前:中華居酒屋 超兄貴</name></li>
