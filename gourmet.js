@@ -198,77 +198,58 @@ let data = {
       ]
     }
   };
-  
+
+ 
   let b1 = document.querySelector('button#print');
   b1.addEventListener('click', showSelectResult);
 function showSelectResult() {
     let s = document.querySelector('input[name="kensaku"]').value;
     console.log("検索キー: " +s);
+      // URL を設定
+      let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/G014.json';
   
+      // 通信開始
+      axios.get(url)
+          .then(showResult)   // 通信成功
+          .catch(showError)   // 通信失敗
+          .then(finish);      // 通信の最後の処理
+}
+  // 通信が成功した時の処理
+  function showResult(resp) {
+      // サーバから送られてきたデータを出力
+      let data = resp.data;
+  
+      // data が文字列型なら，オブジェクトに変換する
+      if (typeof data === 'string') {
+          data = JSON.parse(data);
+      }
+  
+      textContent(data);
+  
+      textContent(data.x);
+
+function displayShopData(shop, idPrefix) {
+  document.querySelector(`#${idPrefix}-name`).textContent = shop.name;
+  document.querySelector(`#${idPrefix}-access`).textContent = `アクセス: ${shop.access}`;
+  document.querySelector(`#${idPrefix}-address`).textContent = `住所: ${shop.address}`;
+  document.querySelector(`#${idPrefix}-budget`).textContent = `予算: ${shop.budget.average}`;
+  document.querySelector(`#${idPrefix}-catch`).textContent = `キャッチコピー: ${shop.catch}`;
+  document.querySelector(`#${idPrefix}-genre`).textContent = `ジャンル: ${shop.genre.name}`;
+  document.querySelector(`#${idPrefix}-open`).textContent = `営業時間: ${shop.open}`;
+  document.querySelector(`#${idPrefix}-station`).textContent = `最寄り駅: ${shop.station_name}`;
+  document.querySelector(`#${idPrefix}-sub-genre`).textContent = `サブジャンル: ${shop.sub_genre.name}`;
+}
+  }
+  
+  // 通信エラーが発生した時の処理
+  function showError(err) {
+      console.log(err);
+  }
+  
+  // 通信の最後にいつも実行する処理
+  function finish() {
+      console.log('Ajax 通信が終わりました');
+  }
   /////////// 課題3-2 ここからプログラムを書こ
   // div#result内に要素を追加
-  let resultDiv = document.getElementById('result');
-  data.results.shop.forEach((shop, index) => {
-    let ul = document.createElement('ul');
-    resultDiv.appendChild(ul);
 
-    let li1 = document.createElement('li');
-    li1.textContent = `名前: ${shop.name}`;
-    ul.appendChild(li1);
-
-    let li2 = document.createElement('li');
-    li2.textContent = `アクセス: ${shop.access}`;
-    ul.appendChild(li2);
-
-    let li3 = document.createElement('li');
-    li3.textContent = `住所: ${shop.address}`;
-    ul.appendChild(li3);
-
-    let li4 = document.createElement('li');
-    li4.textContent = `予算: ${shop.budget.name}`;
-    ul.appendChild(li4);
-
-    let li5 = document.createElement('li');
-    li5.textContent = `キャッチコピー: ${shop.catch}`;
-    ul.appendChild(li5);
-
-    let li6 = document.createElement('li');
-    li6.textContent = `ジャンル: ${shop.genre.name}`;
-    ul.appendChild(li6);
-
-    let li7 = document.createElement('li');
-    li7.textContent = `営業時間: ${shop.open}`;
-    ul.appendChild(li7);
-
-    let li8 = document.createElement('li');
-    li8.textContent = `最寄り駅: ${shop.station_name}`;
-    ul.appendChild(li8);
-
-    let li9 = document.createElement('li');
-    li9.textContent = `サブジャンル: ${shop.sub_genre.name}`;
-    ul.appendChild(li9);
-  });
-}
-
-/*    <ul>
-<li><name>名前:中華居酒屋 超兄貴</name></li>
-<li><acsess>アクセス:新橋駅JR烏森口(西口)から徒歩約3分</acsess></li>
-<li><adress>住所:東京都港区新橋4-10-2 相鉄フレッサイン新橋烏森口2階A号室</adress></li>
-<li><budget.name>予算: 昼 約1000円, 夜 約4000円</budget.name></li>
-<li><catch>キャッチコピー:【新橋駅徒歩1分★】 最大50名まで◎生ビール付き2H飲み放題宴会コース5000円(税込)~</catch></li>
-<li><genre>ジャンル:居酒屋</genre></li>
-<li><open>営業時間:月～土: 11:00～14:00, 17:00～23:30 日曜日 17:00～23:30</open></li>
-<li><station_name>最寄り駅:新橋駅JR烏森口(西口)</station_name></li>
-<li><sub_genre.name>サブジャンル:中華</sub_genre.name></li>
-</ul>
-<h3>検索結果2件目</h3>
-<ul>
-<li><name>名前:嵜本bakery 小田急百貨店新宿店</name></li>
-<li><acsess>アクセス:小田急百貨店新宿店のB2F</acsess></li>
-<li><adress>住所:東京都新宿区西新宿1-5-1 小田急百貨店 新宿店 B2F</adress></li>
-<li><catch>高級ベーカリー</catch></li>
-<li><genre>ジャンル:その他グルメ</genre></li>
-<li><open>営業時間:月～日: 10:00～20:30</open></li>
-<li><station_name>最寄り駅:新宿駅</station_name></li>
-<li><sub_genre.name>サブジャンル:カフェ・スイーツ</sub_genre.name></li>
-</ul> */
