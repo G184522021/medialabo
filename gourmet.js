@@ -252,4 +252,30 @@ function displayShopData(shop, idPrefix) {
   }
   /////////// 課題3-2 ここからプログラムを書こ
   // div#result内に要素を追加
+
+
+
+  <body>
+        <head>
+            <name>名前：生パスタ＆クレープカフェ『ひかり』</name>
+            <access>アクセス：アプラたかいしの1階</access>
+            <address>住所：〒592-0014 大阪府高石市綾園１丁目９−１ 1階 アプラたかいし</address>
+            <budget.name>予算：1,000～2,000円</budget.name>
+            <catch>キャッチコピー：All day dining Hikariは旬の素材にこだわるイタリアンとフルーツパフェが人気のダイニングです。</catch>
+            <genre.name>ジャンル：カフェ・スイーツ</genre.name>
+            <open>営業時間：11時00分〜22時00分定休日 火曜日</open>
+            <station_name>最寄り駅：南海羽衣駅</station_name>
+        </head>
+        <head>
+            <name>名前：焼肉酒場れもん</name>
+            <access>アクセス：徒歩4分</access>
+            <address>住所：〒980-0803 宮城県仙台市青葉区国分町２丁目１１−２１ Koseki.Bldg</address>
+            <budget.name>予算：3001～4000円</budget.name>
+            <catch>キャッチコピー：🍋ワンコインでレモンサワー飲み放題🍋</catch>
+            <genre.name>ジャンル：居酒屋</genre.name>
+            <open>営業時間：18:00～翌3:00</open>
+            <station_name>最寄り駅：勾当台公園駅</station_name>
+        </head> 
+        <div id="result"></div>
+    </body>
 */
