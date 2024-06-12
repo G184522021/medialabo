@@ -5,21 +5,9 @@ h1 {
     border-bottom: dashed black;
     padding-bottom: 5px
 }
-h2 {
-    color: blue;
-    border: purple dotted;
-    padding: 5px 5px 5px 5px;
-    font-style: italic;
-}
-h3 {
+p {
     color: navy;
     border: purple dashed;
-    padding: 5px 5px 5px 5px;
-    font-style: italic;
-}
-ul {
-    color: black;
-    border: yellow solid;
     padding: 5px 5px 5px 5px;
     font-style: italic;
 }
