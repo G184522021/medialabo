@@ -198,15 +198,31 @@ let data = {
     ]
   }
 };
+  /////////// 課題3-2 ここからプログラムを書こ
+  // div#result内に要素を追加
 
+let access = document.querySelector("#access");
+let address = document.querySelector("#address");
+let budget = document.querySelector("#budget");
+let catchcopy = document.querySelector("#catch");
+let genre = document.querySelector("#genre");
+let name = document.querySelector("#name");
+let open = document.querySelector("#open");
+let station_name = document.querySelector("#station_name");
+let sub_genre = document.querySelector("#sub_genre");
  
-  /*let b1 = document.querySelector('button#print');
+  let b1 = document.querySelector('button#print');
   b1.addEventListener('click', showSelectResult);
 function showSelectResult() {
-    let s = document.querySelector('input[name="kensaku"]').value;
-    console.log("検索キー: " +s);
+    let s = document.querySelector('select#shop');
+    let idx = s.selectedIndex;
+
+    let os = s.querySelectorAll("option");
+    let o = os.item(idx);
+    let shopid=o.getAttribute('value');
+    console.log("value =" + o.getAttribute("value"));
       // URL を設定
-      let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/G014.json';
+      let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/'+shopid+'.json';
   
       // 通信開始
       axios.get(url)
@@ -223,22 +239,22 @@ function showSelectResult() {
       if (typeof data === 'string') {
           data = JSON.parse(data);
       }
-  
-      textContent(data);
-  
-      textContent(data.x);
 
-function displayShopData(shop, idPrefix) {
-  document.querySelector(`#${idPrefix}-name`).textContent = shop.name;
-  document.querySelector(`#${idPrefix}-access`).textContent = `アクセス: ${shop.access}`;
-  document.querySelector(`#${idPrefix}-address`).textContent = `住所: ${shop.address}`;
-  document.querySelector(`#${idPrefix}-budget`).textContent = `予算: ${shop.budget.average}`;
-  document.querySelector(`#${idPrefix}-catch`).textContent = `キャッチコピー: ${shop.catch}`;
-  document.querySelector(`#${idPrefix}-genre`).textContent = `ジャンル: ${shop.genre.name}`;
-  document.querySelector(`#${idPrefix}-open`).textContent = `営業時間: ${shop.open}`;
-  document.querySelector(`#${idPrefix}-station`).textContent = `最寄り駅: ${shop.station_name}`;
-  document.querySelector(`#${idPrefix}-sub-genre`).textContent = `サブジャンル: ${shop.sub_genre.name}`;
-}
+      access.textContent = "アクセス情報: " + data.results.shop[0].access;
+      address.textContent = "住所: " + data.results.shop[0].address;
+      budget.textContent = "予算: " + data.results.shop[0].budget.average;
+      catchcopy.textContent = "キャッチコピー: " + data.results.shop[0].catch;
+      genre.textContent = "ジャンル: " + data.results.shop[0].genre.name;
+      name.textContent = "店舗名: " + data.results.shop[0].name;
+      open.textContent = "営業時間: " + data.results.shop[0].open;
+      station_name.textContent = "最寄り駅: " + data.results.shop[0].station_name;
+      sub_genre.textContent = "サブジャンル: " + data.results.shop[0].sub_genre.name;
+
+  
+      console.log(data);
+  
+      console.log(data.x);
+
   }
   
   // 通信エラーが発生した時の処理
@@ -250,32 +266,4 @@ function displayShopData(shop, idPrefix) {
   function finish() {
       console.log('Ajax 通信が終わりました');
   }
-  /////////// 課題3-2 ここからプログラムを書こ
-  // div#result内に要素を追加
 
-
-
-  <body>
-        <head>
-            <name>名前：生パスタ＆クレープカフェ『ひかり』</name>
-            <access>アクセス：アプラたかいしの1階</access>
-            <address>住所：〒592-0014 大阪府高石市綾園１丁目９−１ 1階 アプラたかいし</address>
-            <budget.name>予算：1,000～2,000円</budget.name>
-            <catch>キャッチコピー：All day dining Hikariは旬の素材にこだわるイタリアンとフルーツパフェが人気のダイニングです。</catch>
-            <genre.name>ジャンル：カフェ・スイーツ</genre.name>
-            <open>営業時間：11時00分〜22時00分定休日 火曜日</open>
-            <station_name>最寄り駅：南海羽衣駅</station_name>
-        </head>
-        <head>
-            <name>名前：焼肉酒場れもん</name>
-            <access>アクセス：徒歩4分</access>
-            <address>住所：〒980-0803 宮城県仙台市青葉区国分町２丁目１１−２１ Koseki.Bldg</address>
-            <budget.name>予算：3001～4000円</budget.name>
-            <catch>キャッチコピー：🍋ワンコインでレモンサワー飲み放題🍋</catch>
-            <genre.name>ジャンル：居酒屋</genre.name>
-            <open>営業時間：18:00～翌3:00</open>
-            <station_name>最寄り駅：勾当台公園駅</station_name>
-        </head> 
-        <div id="result"></div>
-    </body>
-*/
